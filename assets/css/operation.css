@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none;
+  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+body {
+  background: #eaeaea;
+}
+path {
+  fill: #007FEB;
+}
+.ptr,
+.round-btn,
+div.operation-block div.mask {
+  cursor: pointer;
+}
+.light-shadow {
+  box-shadow: 1px 3px 10px 0 #c0c0c0;
+}
+.strong-shadow {
+  box-shadow: 1px 3px 10px 0 gray;
+}
+.img-fit {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inherit;
+}
+.random-img-thumb {
+  background-image: url("https://unsplash.6-79.cn/random/thumb");
+}
+.animate,
+div.operation-block,
+div.operation-block div.mask,
+div.operation-block div.flex-container div.title-box app-loading {
+  transition: 0.5s;
+}
+nav,
+div.res {
+  transition: 0.5s;
+}
+@media all and (orientation: portrait) {
+  nav {
+    width: 100%;
+    height: 38.2vh;
+  }
+  nav.nav-zip {
+    height: 25vh;
+  }
+  div.res {
+    width: 100%;
+    height: calc(100% - 38.2vh - 56px);
+    left: 0;
+    top: 38.2vh;
+  }
+  div.res.nav-zip {
+    height: calc(100% - 25vh - 56px);
+    top: 25vh;
+  }
+  div.res.full {
+    height: calc(100% - 38.2vh);
+  }
+  div.res.full.nav-zip {
+    height: calc(100% - 25vh);
+  }
+}
+@media all and (orientation: landscape) {
+  nav {
+    width: 38.2vw;
+    height: calc(100% - 56px);
+  }
+  nav.full {
+    height: 100%;
+  }
+  div.res {
+    width: calc(100% - 38.2vw);
+    height: calc(100% - 56px);
+    left: 38.2vw;
+    top: 0;
+  }
+  div.res.full {
+    height: 100%;
+  }
+}
+footer {
+  width: max-content;
+  height: 56px;
+  min-width: 100%;
+}
+.round-btn {
+  width: 70px;
+  height: 30px;
+  border-radius: 15px;
+  background: #2699FB;
+  color: white;
+  line-height: 30px;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+}
+.round-btn.disabled {
+  background: #CCCCCC;
+}
+.round-btn.sub {
+  background: #CCCCCC;
+}
+.round-btn.warn {
+  background: #D04B4B;
+}
+.round-btn.long {
+  width: 100px;
+}
+.bg-blur {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 2*8px);
+  height: calc(100% + 2*8px);
+  filter: brightness(70%) blur(8px);
+  background-color: black;
+}
+.bg-blur-darker {
+  filter: brightness(40%) blur(8px);
+}
+div.operation-block {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(100% - 56px);
+}
+div.operation-block div.mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+div.operation-block div.container.long {
+  height: 186px;
+}
+div.operation-block div.flex-container {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background: white;
+  height: auto;
+  padding: 16px 5% 30px;
+  max-height: calc(100% - 46px);
+  overflow-y: scroll;
+  transition: 0.5s;
+}
+div.operation-block div.flex-container div.title-box {
+  white-space: nowrap;
+  overflow-x: scroll;
+  margin-bottom: 10px;
+}
+div.operation-block div.flex-container div.title-box div.title {
+  display: inline-flex;
+  color: #007FEB;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 22px;
+  vertical-align: middle;
+}
+div.operation-block div.flex-container div.title-box div.title span {
+  font-weight: normal;
+  font-size: 0.6em;
+  vertical-align: bottom;
+  line-height: 22px;
+}
+div.operation-block div.flex-container div.title-box div.title span.warn {
+  color: #D04B4B;
+}
+div.operation-block div.flex-container div.title-box app-loading {
+  height: 22px;
+  width: 22px;
+  line-height: 22px;
+  vertical-align: middle;
+  display: inline-flex;
+}
+div.operation-block div.flex-container div.choose-bar {
+  width: 100%;
+  font-size: 0;
+  white-space: nowrap;
+  overflow-x: scroll;
+  text-align: right;
+  margin-bottom: 10px;
+  user-select: none;
+}
+div.operation-block div.flex-container div.choose-bar div.choose-item {
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  padding: 2px 12px;
+  border-bottom: 1px solid #2699FB;
+}
+div.operation-block div.flex-container div.choose-bar div.choose-item.inactive {
+  color: #CCCCCC;
+}
+div.operation-block div.flex-container div.choose-bar div.choose-item.active {
+  color: white;
+  background: #2699FB;
+  font-weight: bold;
+}
+div.operation-block div.flex-container div.input-box {
+  width: 100%;
+  margin-top: 10px;
+  overflow-y: hidden;
+  transition: 0.5s;
+  max-height: 500px;
+}
+div.operation-block div.flex-container div.input-box div.title {
+  border-left: 3px solid #2699FB;
+  color: #2699FB;
+  font-size: 14px;
+  padding-left: 8px;
+  margin-bottom: 8px;
+}
+div.operation-block div.flex-container div.input-box div.selector {
+  max-height: 300px;
+  overflow: scroll;
+  margin-bottom: 8px;
+  background: #f0f0f0;
+  padding: 10px 20px;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line {
+  position: relative;
+  font-size: 0;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line input {
+  border-radius: 15px 0 0 15px;
+  display: inline-block;
+  height: 30px;
+  border: 1px solid #CCCCCC;
+  border-right: none;
+  color: #555555;
+  transition: 0.5s;
+  padding: 0 15px;
+  font-size: 12px;
+  width: inherit;
+  outline: none;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line input:hover,
+div.operation-block div.flex-container div.input-box div.input-btn-line input:focus {
+  border: 1px solid #2699FB;
+  border-right: none;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line input[readonly] {
+  color: #CCCCCC;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line input[type='file'] {
+  display: none;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line input.alone {
+  border-radius: 15px;
+  border: 1px solid 30px;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line input.alone:hover,
+div.operation-block div.flex-container div.input-box div.input-btn-line input.alone:focus {
+  border: 1px solid #2699FB;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div.btn {
+  font-size: 14px;
+  display: inline-block;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  padding: 0 20px;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+  background: #CCCCCC;
+  color: white;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div.btn.action {
+  background: #A14BD0;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div.btn.succ {
+  background: #2699FB;
+  font-weight: bold;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div.btn.warn {
+  background: #D04B4B;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div.btn.num {
+  background: #77D05F;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div:first-child {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div:last-child {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: none;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line div:last-child:hover,
+div.operation-block div.flex-container div.input-box div.input-btn-line div:last-child:focus {
+  border: none;
+}
+div.operation-block div.flex-container div.input-box div.input-btn-line.right {
+  justify-content: flex-end;
+}
+div.operation-block div.flex-container div.input-box.inactive {
+  max-height: 0px;
+  margin: 0px;
+  overflow-y: hidden;
+  filter: opacity(0);
+}
+div.operation-block div.flex-container.active {
+  bottom: 0;
+}
+div.operation-block div.flex-container.inactive {
+  bottom: calc(-100vh + 56px);
+}
+div.operation-block.active {
+  filter: opacity(1);
+  visibility: visible;
+}
+div.operation-block.inactive {
+  filter: opacity(0);
+  visibility: hidden;
+}

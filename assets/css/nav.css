@@ -1,0 +1,310 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: none;
+  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+body {
+  background: #eaeaea;
+}
+path {
+  fill: #007FEB;
+}
+.ptr,
+.round-btn,
+nav div.content div.left-btn {
+  cursor: pointer;
+}
+.light-shadow {
+  box-shadow: 1px 3px 10px 0 #c0c0c0;
+}
+.strong-shadow {
+  box-shadow: 1px 3px 10px 0 gray;
+}
+.img-fit {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: inherit;
+}
+.random-img-thumb {
+  background-image: url("https://unsplash.6-79.cn/random/thumb");
+}
+.animate,
+nav {
+  transition: 0.5s;
+}
+nav,
+div.res {
+  transition: 0.5s;
+}
+@media all and (orientation: portrait) {
+  nav {
+    width: 100%;
+    height: 38.2vh;
+  }
+  nav.nav-zip {
+    height: 25vh;
+  }
+  div.res {
+    width: 100%;
+    height: calc(100% - 38.2vh - 56px);
+    left: 0;
+    top: 38.2vh;
+  }
+  div.res.nav-zip {
+    height: calc(100% - 25vh - 56px);
+    top: 25vh;
+  }
+  div.res.full {
+    height: calc(100% - 38.2vh);
+  }
+  div.res.full.nav-zip {
+    height: calc(100% - 25vh);
+  }
+}
+@media all and (orientation: landscape) {
+  nav {
+    width: 38.2vw;
+    height: calc(100% - 56px);
+  }
+  nav.full {
+    height: 100%;
+  }
+  div.res {
+    width: calc(100% - 38.2vw);
+    height: calc(100% - 56px);
+    left: 38.2vw;
+    top: 0;
+  }
+  div.res.full {
+    height: 100%;
+  }
+}
+footer {
+  width: max-content;
+  height: 56px;
+  min-width: 100%;
+}
+.round-btn {
+  width: 70px;
+  height: 30px;
+  border-radius: 15px;
+  background: #2699FB;
+  color: white;
+  line-height: 30px;
+  font-size: 14px;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+}
+.round-btn.disabled {
+  background: #CCCCCC;
+}
+.round-btn.sub {
+  background: #CCCCCC;
+}
+.round-btn.warn {
+  background: #D04B4B;
+}
+.round-btn.long {
+  width: 100px;
+}
+.bg-blur {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 2*8px);
+  height: calc(100% + 2*8px);
+  filter: brightness(70%) blur(8px);
+  background-color: black;
+}
+.bg-blur-darker {
+  filter: brightness(40%) blur(8px);
+}
+nav.showing div.menu-box.showing {
+  opacity: 1;
+  filter: opacity(1);
+  height: auto;
+  overflow-y: visible;
+}
+nav {
+  background: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+nav div.menu-box {
+  opacity: 0;
+  filter: opacity(0);
+  overflow-y: hidden;
+  transition: 0.5s;
+  position: absolute;
+  top: calc(46px / 2 + 24px / 2);
+  right: 20px;
+}
+nav div.menu-box div.triangle {
+  width: 0;
+  height: 0;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent white;
+  position: absolute;
+  right: 6px;
+}
+nav div.menu-box div.menu-list {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  width: max-content;
+  background: white;
+  border-radius: 4px;
+  max-height: calc(100vh - 46px * 2);
+  overflow-y: scroll;
+}
+nav div.menu-box div.menu-list div.menu-title {
+  color: black !important;
+  border-radius: 4px 4px 0 0;
+}
+nav div.menu-box div.menu-list div.menu-item {
+  font-size: 14px;
+  padding: 0 30px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #CCCCCC;
+  color: #555555;
+  text-align: center;
+  cursor: pointer;
+}
+nav div.menu-box div.menu-list div.menu-item:last-child {
+  border-bottom: none;
+  border-radius: 0 0 4px 4px;
+}
+nav div.menu-box div.menu-list div.menu-item:hover {
+  background: #dddddd;
+}
+nav div.menu-box div.menu-list div.menu-item.warn {
+  background: #D04B4B;
+  color: white;
+}
+nav div.content {
+  width: calc(100% - 40px);
+  height: 46px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+nav div.content div.left-btn {
+  position: absolute;
+  top: calc(46px / 2 - 20px / 2);
+  left: 0;
+}
+nav div.content div.left-btn span {
+  color: white;
+  font-size: 20px;
+}
+nav div.content div.right-avatar {
+  cursor: pointer;
+  position: absolute;
+  top: calc(46px / 2 - 24px / 2);
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+nav div.content div.right-avatar img {
+  width: 100%;
+  height: 100%;
+}
+nav div.content div.right-avatar span.icon-unlogin {
+  color: white;
+  filter: opacity(0.5);
+  font-size: 20px;
+  line-height: 24px;
+  transition: 0.5s;
+}
+nav div.content div.right-avatar span.icon-unlogin:hover {
+  filter: opacity(1);
+}
+nav div.content div.dl-cover {
+  cursor: pointer;
+  position: absolute;
+  top: calc(46px / 2 - 24px / 2);
+  width: 24px;
+  height: 24px;
+  right: 44px;
+}
+nav div.content div.dl-cover span {
+  color: white;
+  filter: opacity(0.5);
+  font-size: 24px;
+  transition: 0.5s;
+}
+nav div.content div.dl-cover span:hover {
+  filter: opacity(1);
+}
+nav div.title {
+  position: absolute;
+  left: 24px;
+  bottom: 40px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  width: calc(100% - 2*24px);
+}
+nav div.foot {
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  background: none;
+  width: 100%;
+  height: 36px;
+}
+nav div.foot span.owner {
+  font-size: 12px;
+  line-height: 36px;
+  vertical-align: middle;
+  padding-left: 24px;
+  color: white;
+}
+nav div.foot div.avatar {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  display: inline-block;
+  margin-left: 6px;
+}
+nav div.foot div.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  line-height: 36px;
+  vertical-align: middle;
+}
+nav div.foot div.share {
+  float: right;
+  height: 36px;
+  line-height: 36px;
+  vertical-align: middle;
+  font-size: 12px;
+  padding-right: 20px;
+  color: white;
+}
+nav div.foot div.share span.warn {
+  color: #D04B4B;
+}
+nav div.bg-blur {
+  transition: 0.8s;
+}
+nav div.bg-blur.loaded {
+  filter: brightness(70%);
+}
+nav.showing {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
